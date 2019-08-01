@@ -7,11 +7,11 @@ public class Trash : MonoBehaviour
     private float fallSpeed = 0.4f;
     private float wiggleSpeed = 1.0f;
     public int count;
-    private float moveVelocity = Random.Range(0,7);
+    private float moveVelocity;
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveVelocity = Random.Range(0.1f,3.2f);
     }
 
     // Update is called once per frame
@@ -24,6 +24,9 @@ public class Trash : MonoBehaviour
         }
         else{wiggleRight();}
         shootOut();
+        if(transform.position.y < -20){
+            Destroy(this);
+        }
     }
 
     void wiggleLeft(){
