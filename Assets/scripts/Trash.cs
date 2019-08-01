@@ -30,11 +30,11 @@ public class Trash : MonoBehaviour
     }
 
     void wiggleLeft(){
-        transform.Translate(Vector3.left * fallSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.left * (fallSpeed+1.0f) * Time.deltaTime, Space.World);
     }
     
     void wiggleRight(){
-        transform.Translate(Vector3.right * fallSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.right * (fallSpeed+1.0f) * Time.deltaTime, Space.World);
     }
 
     void shootOut(){
