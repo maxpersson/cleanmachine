@@ -6,43 +6,47 @@ using System.Threading;
 
 public class serial : MonoBehaviour
 {
-    Thread ChildThread = null;
-    EventWaitHandle ChildThreadWait = new EventWaitHandle(true, EventResetMode.ManualReset);
-    EventWaitHandle MainThreadWait = new EventWaitHandle(true, EventResetMode.ManualReset);
+    public SerialController serialController;
 
-    SerialPort stream;
-
-    int state = 1;
+    float state = 1;
 
     float timeDifference;
+    float start;
 
-    float speed;
+    public float speed;
+    float count;
+    bool state_check = false;
 
-    string infoString;
 
-    private void Awake()
-    {
-        ChildThread = new Thread(calculateSpeed);
-        ChildThread.Start();
-    }
     // Start is called before the first frame update
     void Start()
     {
-        stream = new SerialPort("COM11", 9600);
-        stream.Open();
-        
+
+        serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MainThreadWait.Reset();
-        WaitHandle.SignalAndWait(ChildThreadWait, MainThreadWait);
 
-        infoString = stream.ReadLine();
-        
-        state = int.Parse(infoString);
-        
+        string message1 = serialController.ReadSerialMessage();
+
+
+
+        if (message1 == null)
+            return;
+
+        // Check if the message is plain data or a connect/disconnect event.
+        if (ReferenceEquals(message1, SerialController.SERIAL_DEVICE_CONNECTED))
+            Debug.Log("Connection established");
+        else if (ReferenceEquals(message1, SerialController.SERIAL_DEVICE_DISCONNECTED))
+            Debug.Log("Connection attempt failed or disconnection detected");
+        else
+            Debug.Log("Message arrived: " + message1 );
+
+        state = int.Parse(message1);
+        calculateSpeed();
+
 
     }
 
@@ -52,45 +56,43 @@ public class serial : MonoBehaviour
 
     }
 
-    void OnApplicationQuit()
-    {
-        if (stream != null)
-            stream.Close();
-    }
 
     void calculateSpeed()
     {
-        ChildThreadWait.Reset();
-        ChildThreadWait.WaitOne();
 
-        float start = Time.time;
-        float count = 0;
-        bool state_check = false;
-
-        while (true)
+        if (count == 0)
         {
-            ChildThreadWait.Reset();
-            if (state == 0)
-            {
-                if (!state_check)
-                {
-                    state_check = true;
-                    count += 1;
-                }
-                else
-                {
-                    state_check = false;
-                }
-                if (count >= 10)
-                {
-                    break;
-                }
-            }
-            WaitHandle.SignalAndWait(MainThreadWait, ChildThreadWait);
+            start = Time.time;
         }
 
-        float end = Time.time;
-        timeDifference = end - start;
-        speed = count / timeDifference;
+        if (state == 0)
+        {
+            if (!state_check)
+            {
+                state_check = true;
+                count += 1;
+            }
+
+
+            if (count >= 5)
+            {
+                float end = Time.time;
+                timeDifference = (end - start) / 1000;
+                speed = count / timeDifference;
+                end = 0;
+                count = 0;
+                state_check = false;
+            }
+            else
+            {
+                speed = 0;
+            }
+        }
+        else
+        {
+            state_check = false;
+        }
+
     }
+
 }

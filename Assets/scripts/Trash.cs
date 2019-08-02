@@ -25,8 +25,8 @@ public class Trash : MonoBehaviour
         }
         else{wiggleRight();}
         shootOut();
-        if(transform.position.y < -20){
-            Destroy(this);
+        if(transform.position.y < -5){
+            Destroy(gameObject);
         }
     }
 

@@ -11,7 +11,7 @@ public class serialBlow : MonoBehaviour
 
     public string port = "COM11";
 
-    float state = 1;
+    public int state = 1;
 
     float timeDifference;
     float start;
@@ -29,7 +29,7 @@ public class serialBlow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stream = new SerialPort(port, 9600);
+        stream = new SerialPort(port, 115200);
         stream.Open();
         // declare thread, and reference sampleFunction
         Thread sampleThread = new Thread(new ThreadStart(readSerial));
@@ -41,7 +41,7 @@ public class serialBlow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        calculateSpeed();
+        //calculateSpeed();
 
     }
 
@@ -105,7 +105,6 @@ public class serialBlow : MonoBehaviour
             }
             if (stream.IsOpen)
             {
-                stream.ReadTimeout = 1;
                 try
                 {
 

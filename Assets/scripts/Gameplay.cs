@@ -16,6 +16,9 @@ public class Gameplay : MonoBehaviour
 
     public float blowSpeed;
 
+    bool rotationSwitch = true;
+
+
     void Start()
     {
         trashArray = new GameObject[] {trash1, trash2, trash3, trash4, trash5, trash6};
@@ -27,16 +30,28 @@ public class Gameplay : MonoBehaviour
     void Update()
     {
 
-        blowSpeed = GameObject.Find("Square").GetComponent<serialBlow>().speed;
-        int piecesOfTrash = (int)blowSpeed / 1000;
-        if(blowSpeed > 0)
-        {
-            for(int i = 0; i < piecesOfTrash; i++)
-            {
-                createGameObject();
-            }
+        //blowSpeed = GameObject.Find("Square").GetComponent<serialBlow>().speed;
+        //int piecesOfTrash = (int)blowSpeed / 500;
+        //if(blowSpeed > 0)
+        //{
+        //    for(int i = 0; i < piecesOfTrash; i++)
+        //    {
+        //        createGameObject();
+        //    }
 
+        //}
+        int state = GameObject.Find("Square").GetComponent<serialBlow>().state;
+
+        if(state == 1)
+        {
+            rotationSwitch = true;
         }
+        else if (state == 0 && rotationSwitch)
+        {
+            createGameObject();
+            rotationSwitch = false;
+        }
+        
 
        if (Input.GetMouseButtonDown(0)){
            createGameObject();
