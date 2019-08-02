@@ -14,6 +14,8 @@ public class Gameplay : MonoBehaviour
 
     public GameObject[] trashArray;
 
+    public float blowSpeed;
+
     void Start()
     {
         trashArray = new GameObject[] {trash1, trash2, trash3, trash4, trash5, trash6};
@@ -24,10 +26,22 @@ public class Gameplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)){
-            createGameObject();
+
+        blowSpeed = GameObject.Find("Square").GetComponent<serialBlow>().speed;
+        int piecesOfTrash = (int)blowSpeed / 1000;
+        if(blowSpeed > 0)
+        {
+            for(int i = 0; i < piecesOfTrash; i++)
+            {
+                createGameObject();
+            }
+
         }
-            
+
+       if (Input.GetMouseButtonDown(0)){
+           createGameObject();
+        }
+
     }
 
     void createGameObject(){

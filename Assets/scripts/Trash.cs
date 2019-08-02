@@ -12,6 +12,7 @@ public class Trash : MonoBehaviour
     void Start()
     {
         moveVelocity = Random.Range(0.1f,3.2f);
+
     }
 
     // Update is called once per frame
