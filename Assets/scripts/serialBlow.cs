@@ -9,7 +9,7 @@ public class serialBlow : MonoBehaviour
 {
     SerialPort stream;
 
-    public string port = "COM11";
+    public string port = "COM12";
 
     public int state = 1;
 
@@ -19,12 +19,9 @@ public class serialBlow : MonoBehaviour
     public float speed;
     float count;
     bool state_check = false;
-    int bytVal1;
-    int bytVal2;
+   
 
     public int distance;
-
-    string infoString;
 
     // Start is called before the first frame update
     void Start()
@@ -45,49 +42,49 @@ public class serialBlow : MonoBehaviour
 
     }
 
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 300, 100), "lort    " + state.ToString() + "     speed:    " + speed.ToString() + "    time_start:  " + start.ToString() + "     counter:     " + count.ToString() + "   byte:      " + bytVal1.ToString() + "     distance:" + distance.ToString() );
+    //private void OnGUI()
+    //{
+    //    GUI.Label(new Rect(10, 10, 300, 100), "lort    " + state.ToString() + "     speed:    " + speed.ToString() + "    time_start:  " + start.ToString() + "     counter:     " + count.ToString() + "   byte:      " + bytVal1.ToString() + "     distance:" + distance.ToString() );
 
-    }
+    //}
+    // calculate RPM 
+    //void calculateSpeed()
+    //{
 
-    void calculateSpeed()
-    {
+    //    if (count == 0)
+    //    {
+    //        start = Time.time;
+    //    }
 
-        if (count == 0)
-        {
-            start = Time.time;
-        }
-
-        if (state == 0)
-        {
-            if (!state_check)
-            {
-                state_check = true;
-                count += 1;
-            }
+    //    if (state == 0)
+    //    {
+    //        if (!state_check)
+    //        {
+    //            state_check = true;
+    //            count += 1;
+    //        }
 
 
-            if (count >= 5)
-            {
-                float end = Time.time;
-                timeDifference = (end - start) / 1000;
-                speed = count / timeDifference;
-                end = 0;
-                count = 0;
-                state_check = false;
-            }
-            else
-            {
-                speed = 0;
-            }
-        }
-        else
-        {
-            state_check = false;
-        }
+    //        if (count >= 5)
+    //        {
+    //            float end = Time.time;
+    //            timeDifference = (end - start) / 1000;
+    //            speed = count / timeDifference;
+    //            end = 0;
+    //            count = 0;
+    //            state_check = false;
+    //        }
+    //        else
+    //        {
+    //            speed = 0;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        state_check = false;
+    //    }
 
-    }
+    //}
 
     void OnApplicationQuit()
     {
@@ -97,6 +94,8 @@ public class serialBlow : MonoBehaviour
 
     public void readSerial()
     {
+        int bytVal1;
+        int bytVal2;
         while (true)
         {
             if (stream == null)
