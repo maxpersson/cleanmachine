@@ -10,6 +10,7 @@ public class wasteShark : MonoBehaviour
 
     float worldRight = 7.0f;
     float worldLeft = -7.0f;
+    public bool live = false;
 
  
     // Start is called before the first frame update
@@ -21,22 +22,25 @@ public class wasteShark : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sharkDirection = GameObject.Find("Square").GetComponent<serialBlow>().distance;
+        if(live == true){
+            sharkDirection = GameObject.Find("Square").GetComponent<serialBlow>().distance;
 
-        float interpolatedMovement = worldLeft + ((worldRight - worldLeft) / (40 - 0)) * (sharkDirection - 0);
+            float interpolatedMovement = worldLeft + ((worldRight - worldLeft) / (40 - 0)) * (sharkDirection - 0);
 
 
-        Vector3 target = new Vector3(interpolatedMovement, -4.0f, 0.0f);
-        float step = moveSpeed * Time.deltaTime; // calculate distance to move
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-
-        
-        if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0) {
-            transform.Translate(Vector3.left * (moveSpeed+4.0f) * Time.deltaTime, Space.World);
-        } 
-       else if (Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0) {
-            transform.Translate((Vector3.left * (moveSpeed+4.0f) * Time.deltaTime)*-1, Space.World);           
+            Vector3 target = new Vector3(interpolatedMovement, -4.0f, 0.0f);
+            float step = moveSpeed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
         }
+        else{
+            if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0) {
+            transform.Translate(Vector3.left * (moveSpeed+4.0f) * Time.deltaTime, Space.World);
+            } 
+            else if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0) {
+                    transform.Translate((Vector3.left * (moveSpeed+4.0f) * Time.deltaTime)*-1, Space.World);           
+            }
+        } 
+        
     }
 
     
