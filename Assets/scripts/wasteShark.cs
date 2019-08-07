@@ -10,7 +10,7 @@ public class wasteShark : MonoBehaviour
 
     float worldRight = 7.0f;
     float worldLeft = -7.0f;
-    public bool live = true;
+    public bool live = false;
 
  
     // Start is called before the first frame update
@@ -33,10 +33,11 @@ public class wasteShark : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target, step);
         }
         else{
-            if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0) {
+            
+            if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") < 0 && transform.position.x > -8) {
             transform.Translate(Vector3.left * (moveSpeed+4.0f) * Time.deltaTime, Space.World);
             } 
-            else if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0) {
+            else if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0 && transform.position.x < 8) {
                     transform.Translate((Vector3.left * (moveSpeed+4.0f) * Time.deltaTime)*-1, Space.World);           
             }
         } 

@@ -8,10 +8,11 @@ public class Trash : MonoBehaviour
     private float wiggleSpeed = 1.0f;
     public int count;
     private float moveVelocity;
+    public GameObject Shark;
     // Start is called before the first frame update
     void Start()
     {
-        moveVelocity = Random.Range(0.1f,2.2f);
+        moveVelocity = Random.Range(0.1f,3.2f);
 
     }
 
@@ -30,6 +31,7 @@ public class Trash : MonoBehaviour
         if(transform.position.y < -5){
             Destroy(gameObject);
         }
+        detectIfCollidedWithShark();
     }
     
     void wiggleLeft(){
@@ -43,6 +45,14 @@ public class Trash : MonoBehaviour
     void shootOut(){
         if(transform.position.y > 1.9){
             transform.Translate(Vector3.right * moveVelocity * Time.deltaTime, Space.World);
+        }
+    }
+
+    void detectIfCollidedWithShark(){
+        if(Shark.transform.position.y -0.5f < transform.position.y && Shark.transform.position.y +0.5f > transform.position.y ){
+            if(Shark.transform.position.x -4 < transform.position.x && Shark.transform.position.x +4 > transform.position.x){
+                print("COLISSION!!!");
+            }
         }
     }
 }
