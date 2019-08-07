@@ -10,8 +10,10 @@ public class GameConstraints : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text timerText;
+
     public Text winText;
     public Text countDownText;
+
     private float gameTimer;
     private float pauseTimer = 5;
     SerialPort closeStream;
