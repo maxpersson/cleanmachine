@@ -8,7 +8,7 @@ public class Coalition : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private int count;
+    public int count;
     public Text countText;
     SerialPort sendStream;
 

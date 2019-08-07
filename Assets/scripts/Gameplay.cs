@@ -54,7 +54,6 @@ public class Gameplay : MonoBehaviour
         {
             createGameObject();
             rotationSwitch = false;
-            trashCounter += 1;
             SetCountText();
         }
         
@@ -66,6 +65,7 @@ public class Gameplay : MonoBehaviour
     }
 
     void createGameObject(){
+        trashCounter += 1;
         GameObject newObject = trashArray[Random.Range(0,5)];
         newObject.transform.position = new Vector3(-9f,4.2f,0);
         Instantiate(newObject);
