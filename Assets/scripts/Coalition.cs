@@ -8,13 +8,13 @@ public class Coalition : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private int count;
+    public int count;
     public Text countText;
     SerialPort sendStream;
 
     void Start()
     {
-        count = 0;
+        count = 1;
         SetCountText();
         sendStream = GameObject.Find("Square").GetComponent<serialBlow>().stream;
 
@@ -25,7 +25,6 @@ public class Coalition : MonoBehaviour
     {
         
     }
-    
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -37,11 +36,6 @@ public class Coalition : MonoBehaviour
             SetCountText();
             sendStream.Write("1");
         }
-        
-    }
-    
-
-    void checkCollision(){
         
     }
 
