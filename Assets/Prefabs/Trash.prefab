@@ -94,8 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4762fccc5d7454e9498c3eb04747a46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
-  Shark: {fileID: 399648781483340776, guid: d28fd4982052242b3a0ba4b9e7c994f2, type: 3}
+  trashDestroyed: 0
 --- !u!65 &9190176706263043985
 BoxCollider:
   m_ObjectHideFlags: 0

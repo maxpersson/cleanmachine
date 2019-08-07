@@ -21,6 +21,7 @@ public class GameConstraints : MonoBehaviour
     float collectCount;
     float trashCount;
     float winningCoeficient;
+    float trashDifference;
     void Start()
     {
         gameTimer = 0;
@@ -31,11 +32,11 @@ public class GameConstraints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collectCount = GameObject.Find("Skraldedrone").GetComponent<Coalition>().count;
+        collectCount = GameObject.Find("Skraldedrone").GetComponent<Coalition>().pickCount;
         trashCount = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
-        Debug.Log(trashCount);
+        trashDifference = trashCount - collectCount;
         gameTimer += Time.deltaTime;
-        winningCoeficient = trashCount / collectCount;
+        winningCoeficient = trashDifference / trashCount;
         gameStop();
 
          
@@ -51,7 +52,7 @@ public class GameConstraints : MonoBehaviour
             timerText.text = "";
             pauseTimer -= Time.deltaTime;
             countDownText.text = pauseTimer.ToString();
-            if (winningCoeficient > 3)
+            if (winningCoeficient > 0.5)
             {
                 winText.text = "Tillykke du har svinet havet til \nVenligst ikke fortsæt dette i den virkelige verden, men i stedet at fjerne plastik fra naturen, så vi kan bevare natur og dyrliv til fremtidige generationer.";
             }

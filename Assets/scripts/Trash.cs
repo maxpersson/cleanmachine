@@ -6,7 +6,7 @@ public class Trash : MonoBehaviour
 {
     private float fallSpeed = 0.4f;
     private float wiggleSpeed = 1.0f;
-    public int count;
+    private int count;
     public int trashDestroyed;
     private float moveVelocity;
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class Trash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         count++;
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
         if( count%2 == 0){
@@ -28,7 +29,7 @@ public class Trash : MonoBehaviour
             wiggleRight();
         }
         shootOut();
-        if(transform.position.y < -4){
+        if(transform.position.y < -4.5){
             trashDestroyed += 1;
             Destroy(gameObject);
 

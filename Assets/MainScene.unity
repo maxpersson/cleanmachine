@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185891ea448748740ba3e0e485ef90d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
+  pickCount: 0
   countText: {fileID: 1969928129}
 --- !u!1 &1518727811
 GameObject:
@@ -1537,6 +1537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 399648782572871060, guid: d28fd4982052242b3a0ba4b9e7c994f2,
+        type: 3}
+      propertyPath: live
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28fd4982052242b3a0ba4b9e7c994f2, type: 3}

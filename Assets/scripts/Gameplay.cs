@@ -60,7 +60,6 @@ public class Gameplay : MonoBehaviour
 
        if (Input.GetMouseButtonDown(0)){
            createGameObject();
-            trashCounter += 1;
             SetCountText();
         }
 
