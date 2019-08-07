@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4762fccc5d7454e9498c3eb04747a46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 0.7
+  count: 0
 --- !u!1001 &311137208972020518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,13 +86,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300002, guid: 2f64aa681b827495bb4296383c959082,
         type: 3}
-    - target: {fileID: 2137533856502941259, guid: 9f5be023b959b433fb4bef79ef9eedb6,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2137533856502941259, guid: 9f5be023b959b433fb4bef79ef9eedb6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5be023b959b433fb4bef79ef9eedb6, type: 3}
 --- !u!1 &5106301832944696248 stripped
 GameObject:

@@ -25,6 +25,7 @@ public class Coalition : MonoBehaviour
     {
         
     }
+    
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -36,6 +37,11 @@ public class Coalition : MonoBehaviour
             SetCountText();
             sendStream.Write("1");
         }
+        
+    }
+    
+
+    void checkCollision(){
         
     }
 
