@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,14 @@ public class Coalition : MonoBehaviour
 
     private int count;
     public Text countText;
+    SerialPort sendStream;
 
     void Start()
     {
         count = 0;
         SetCountText();
+        sendStream = GameObject.Find("Square").GetComponent<serialBlow>().stream;
+
     }
 
     // Update is called once per frame
@@ -28,7 +32,7 @@ public class Coalition : MonoBehaviour
             Destroy(collision.gameObject);
             count = count + 1;
             SetCountText();
-
+        sendStream.Write("1");
         
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Gameplay : MonoBehaviour
     public float blowSpeed;
 
     bool rotationSwitch = true;
+    public int trashCounter;
+    public Text trashText;
+
 
 
     void Start()
@@ -50,6 +54,8 @@ public class Gameplay : MonoBehaviour
         {
             createGameObject();
             rotationSwitch = false;
+            trashCounter += 1;
+            SetCountText();
         }
         
 
@@ -63,5 +69,11 @@ public class Gameplay : MonoBehaviour
         GameObject newObject = trashArray[Random.Range(0,5)];
         newObject.transform.position = new Vector3(-9f,4.2f,0);
         Instantiate(newObject);
+    }
+
+    void SetCountText()
+    {
+       trashText.text = "trash Count: " + trashCounter.ToString();
+
     }
 }

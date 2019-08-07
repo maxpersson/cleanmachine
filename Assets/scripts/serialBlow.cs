@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class serialBlow : MonoBehaviour
 {
-    SerialPort stream;
+    public SerialPort stream;
 
     public string port = "COM12";
 
