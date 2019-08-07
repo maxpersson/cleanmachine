@@ -10,7 +10,7 @@ public class wasteShark : MonoBehaviour
 
     float worldRight = 7.0f;
     float worldLeft = -7.0f;
-    public bool live = false;
+    public bool live = true;
 
  
     // Start is called before the first frame update

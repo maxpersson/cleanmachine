@@ -11,7 +11,7 @@ public class Trash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveVelocity = Random.Range(0.1f,3.2f);
+        moveVelocity = Random.Range(0.1f,2.2f);
 
     }
 
@@ -23,13 +23,15 @@ public class Trash : MonoBehaviour
         if( count%2 == 0){
             wiggleLeft();
         }
-        else{wiggleRight();}
+        else{
+            wiggleRight();
+        }
         shootOut();
         if(transform.position.y < -5){
             Destroy(gameObject);
         }
     }
-
+    
     void wiggleLeft(){
         transform.Translate(Vector3.left * (fallSpeed+1.0f) * Time.deltaTime, Space.World);
     }
@@ -37,7 +39,7 @@ public class Trash : MonoBehaviour
     void wiggleRight(){
         transform.Translate(Vector3.right * (fallSpeed+1.0f) * Time.deltaTime, Space.World);
     }
-
+ 
     void shootOut(){
         if(transform.position.y > 1.9){
             transform.Translate(Vector3.right * moveVelocity * Time.deltaTime, Space.World);
