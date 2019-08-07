@@ -27,12 +27,15 @@ public class Coalition : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-       
+
+        if (collision.gameObject.tag == "pickUp")
+        {
             Debug.Log("fucckckkckskkkckcksdkckssdck");
             Destroy(collision.gameObject);
             count = count + 1;
             SetCountText();
-        sendStream.Write("1");
+            sendStream.Write("1");
+        }
         
     }
 
