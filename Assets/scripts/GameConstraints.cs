@@ -20,7 +20,7 @@ public class GameConstraints : MonoBehaviour
 
     float collectCount;
     float trashCount;
-    float winningCoeficient;
+    public float winningCoeficient;
     float trashDifference;
     void Start()
     {
@@ -36,7 +36,7 @@ public class GameConstraints : MonoBehaviour
         trashCount = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
         trashDifference = trashCount - collectCount;
         gameTimer += Time.deltaTime;
-        winningCoeficient = trashDifference / trashCount;
+        winningCoeficient = trashDifference /trashCount ;
         gameStop();
 
          
