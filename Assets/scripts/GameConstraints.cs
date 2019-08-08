@@ -20,7 +20,7 @@ public class GameConstraints : MonoBehaviour
 
     float collectCount;
     float trashCount;
-    float winningCoeficient;
+    public float winningCoeficient;
     float trashDifference;
 
     int startButton = 1;
@@ -39,8 +39,10 @@ public class GameConstraints : MonoBehaviour
         collectCount = GameObject.Find("Skraldedrone").GetComponent<Coalition>().pickCount;
         trashCount = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
         trashDifference = trashCount - collectCount;
+
         gameTimer -= Time.deltaTime;
         winningCoeficient = trashDifference / trashCount;
+
         gameStop();
          
 

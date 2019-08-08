@@ -15,7 +15,7 @@ public class Coalition : MonoBehaviour
 
     void Start()
     {
-        pickCount = 1;
+        pickCount = 0;
         SetCountText();
         
 
