@@ -142,12 +142,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1573755048}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 78.6}
-  m_SizeDelta: {x: 350.8, y: 101.2}
+  m_SizeDelta: {x: 483.3, y: 173.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &70289813
 MonoBehaviour:
@@ -176,19 +176,16 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "V\xE6lg din controller p\xE5 bordet!\n\nImagine a big building (company)
-    from it a long tube and it blows trash out in the ocean. \r\nHelp the company
-    pollute the ocean\r\n\n\nYou are 2 players \r\nOne being the big corporation,
-    controlling the flow of trash \u2192 getting points for how many seals they kill\r\nOne
-    being the WasteShark, eating the trash \u2192 getting points for how many seals
-    they save  \r\n2 different controllers, so that the game change when you switched
-    role\r\n\nThe one who have either killed or saved the most seals win \n\n  "
+  m_Text: "Dette er et spil for 2 spillere\n\nDu kan v\xE6lge at spille som en st\xF8rre
+    virksomhed, som forurener havene med plastik eller du kan v\xE6lge at spille som
+    barnet som hj\xE6lp fra Dokk1 skraldehaj fors\xF8ger at redde havmilj\xF8et.\n\nV\xE6lg
+    din controller p\xE5 bordet!\n\nUNFUCK THE WORLD\n\n  "
 --- !u!222 &70289814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -306,7 +303,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1573755048}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -515,6 +512,8 @@ GameObject:
   - component: {fileID: 1573755047}
   - component: {fileID: 1573755046}
   - component: {fileID: 1573755045}
+  - component: {fileID: 1573755050}
+  - component: {fileID: 1573755049}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -593,6 +592,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1969340653}
   - {fileID: 1992636409}
   - {fileID: 70289812}
   - {fileID: 308161269}
@@ -604,6 +604,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1573755049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573755044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3f9465491431f4095999c7757d1ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1573755050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573755044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726c702c3907a6f438c6d26919932efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: COM11
+  state: 1
+  distance: 0
+  button: 1
+  speed: 0
 --- !u!1001 &1765305089
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -671,8 +700,87 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.41
       objectReference: {fileID: 0}
+    - target: {fileID: 399648782572871051, guid: d28fd4982052242b3a0ba4b9e7c994f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d28fd4982052242b3a0ba4b9e7c994f2, type: 3}
+--- !u!1 &1969340652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1969340653}
+  - component: {fileID: 1969340655}
+  - component: {fileID: 1969340654}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1969340653
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969340652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1573755048}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -720, y: -516}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1969340654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969340652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1969340655
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969340652}
+  m_CullTransparentMesh: 0
 --- !u!1 &1992636408
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +814,7 @@ RectTransform:
   m_Children:
   - {fileID: 290827421}
   m_Father: {fileID: 1573755048}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

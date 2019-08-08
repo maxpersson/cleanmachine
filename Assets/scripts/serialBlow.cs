@@ -9,9 +9,11 @@ public class serialBlow : MonoBehaviour
 {
     public SerialPort stream;
 
-    public string port = "COM12";
+    public string port = "COM11";
 
     public int state = 1;
+    public int distance;
+    public int button = 1;
 
     float timeDifference;
     float start;
@@ -21,7 +23,7 @@ public class serialBlow : MonoBehaviour
     bool state_check = false;
    
 
-    public int distance;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +98,7 @@ public class serialBlow : MonoBehaviour
     {
         int bytVal1;
         int bytVal2;
-        int hej;
+        int bytVal3;
         while (true)
         {
             if (stream == null)
@@ -113,8 +115,11 @@ public class serialBlow : MonoBehaviour
 
                     bytVal2 = stream.ReadByte();
                     distance = bytVal2;
+
+                    bytVal3 = stream.ReadByte();
                     //hej = stream.ReadByte();
-                    
+                    button = bytVal3;
+
                     //Debug.Log(hej);
 
 
