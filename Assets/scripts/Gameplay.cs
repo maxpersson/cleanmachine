@@ -18,7 +18,7 @@ public class Gameplay : MonoBehaviour
     public float blowSpeed;
 
     bool rotationSwitch = true;
-    public int trashCounter;
+    public int trashCounter ;
     public Text trashText;
 
 
@@ -60,6 +60,7 @@ public class Gameplay : MonoBehaviour
 
        if (Input.GetMouseButtonDown(0)){
            createGameObject();
+            SetCountText();
         }
 
     }

@@ -96,6 +96,7 @@ public class serialBlow : MonoBehaviour
     {
         int bytVal1;
         int bytVal2;
+        int hej;
         while (true)
         {
             if (stream == null)
@@ -106,12 +107,16 @@ public class serialBlow : MonoBehaviour
             {
                 try
                 {
-
+                    
                     bytVal1 = stream.ReadByte();
                     state = bytVal1;
 
                     bytVal2 = stream.ReadByte();
                     distance = bytVal2;
+                    //hej = stream.ReadByte();
+                    
+                    //Debug.Log(hej);
+
 
                 }
                 catch (TimeoutException ex)

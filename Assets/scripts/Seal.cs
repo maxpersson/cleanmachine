@@ -19,7 +19,7 @@ public class Seal : MonoBehaviour
     void Update()
     {
         trashCounter = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
-        trashCatched = GameObject.Find("Skraldedrone").GetComponent<Coalition>().count;
+        trashCatched = GameObject.Find("Skraldedrone").GetComponent<Coalition>().pickCount;
         difference = trashCounter-trashCatched;
     }
 }
