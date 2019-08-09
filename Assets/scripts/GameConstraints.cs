@@ -27,7 +27,7 @@ public class GameConstraints : MonoBehaviour
 
     void Start()
     {
-        gameTimer = 30;
+        gameTimer = 90;
         closeStream = GameObject.Find("Square").GetComponent<serialBlow>().stream;
         
 
@@ -41,11 +41,11 @@ public class GameConstraints : MonoBehaviour
         trashCount = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
         
 
-        trashDifference = trashCount - collectCount;
+        trashDifference = trashDestroyed - collectCount;
 
         gameTimer -= Time.deltaTime;
         print(trashDestroyed);
-        winningCoeficient = trashDifference / trashDestroyed;
+        winningCoeficient = trashDifference / trashCount;
         print(winningCoeficient);
 
         gameStop();
