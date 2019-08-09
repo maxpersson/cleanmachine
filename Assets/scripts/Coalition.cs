@@ -25,6 +25,7 @@ public class Coalition : MonoBehaviour
     void Update()
     {
         sendStream = GameObject.Find("Square").GetComponent<serialBlow>().stream;
+        
 
     }
     private void OnCollisionEnter(Collision collision)

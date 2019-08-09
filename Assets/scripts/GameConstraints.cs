@@ -17,7 +17,7 @@ public class GameConstraints : MonoBehaviour
     private float gameTimer;
     private float pauseTimer = 20;
     SerialPort closeStream;
-
+    public int trashDestroyed = 0;
     float collectCount;
     float trashCount;
     public float winningCoeficient;
@@ -30,6 +30,7 @@ public class GameConstraints : MonoBehaviour
         gameTimer = 30;
         closeStream = GameObject.Find("Square").GetComponent<serialBlow>().stream;
         
+
     }
 
     // Update is called once per frame
@@ -38,10 +39,14 @@ public class GameConstraints : MonoBehaviour
         startButton = GameObject.Find("Square").GetComponent<serialBlow>().button;
         collectCount = GameObject.Find("Skraldedrone").GetComponent<Coalition>().pickCount;
         trashCount = GameObject.Find("Pipe").GetComponent<Gameplay>().trashCounter;
+        
+
         trashDifference = trashCount - collectCount;
 
         gameTimer -= Time.deltaTime;
-        winningCoeficient = trashDifference / trashCount;
+        print(trashDestroyed);
+        winningCoeficient = trashDifference / trashDestroyed;
+        print(winningCoeficient);
 
         gameStop();
          
@@ -59,11 +64,11 @@ public class GameConstraints : MonoBehaviour
             countDownText.text = ""+(int)pauseTimer;
             if (winningCoeficient > 0.6)
             {
-                winText.text = "Tillykke du har svinet havet til \nVenligst ikke fortsæt dette i den virkelige verden, men prøv i stedet for at fjerne plastik fra naturen, så vi kan bevare natur og dyrliv til fremtidige generationer. \n Har du en eller flere gode ideer til hvordan vi kan håndtere plastik i havene, så kan du putte dem i postkassen til venstre.";
+                winText.text = "Spillet er slut\n Vent eller tryk på start for at spille igen\n For meget plastik er endt i havet \nVenligst ikke fortsæt dette i den virkelige verden, men prøv i stedet for at fjerne plastik fra naturen, så vi kan bevare natur og dyrliv til fremtidige generationer. \n Har du en eller flere gode ideer til hvordan vi kan håndtere plastik i havene, så kan du putte dem i postkassen til venstre.";
             }
             else
             {
-                winText.text = "Tillykke du reddet hav  miljøet \nFortsæt det gode arbejde i den virkelige verden, så vi kan bevare natur og dyreliv til fremtidige generationer. \n Har du en eller flere gode ideer til hvordan vi kan håndtere plastik i havene, så kan du putte dem i postkassen til venstre.  ";
+                winText.text = "Spillet er slut \n Vent eller tryk på start for at spille igen \n Du har renset havet for plastik \n Fortsæt det gode arbejde i den virkelige verden, så vi kan bevare natur og dyreliv til fremtidige generationer. \n Har du en eller flere gode ideer til hvordan vi kan håndtere plastik i havene, så kan du smide dem i postkassen til venstre.  ";
             }
             if (pauseTimer <= 0 || startButton == 0)
             {

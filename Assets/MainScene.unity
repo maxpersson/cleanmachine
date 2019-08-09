@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difference: 0
+  seal1: []
 --- !u!1 &369964792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,10 +1319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726c702c3907a6f438c6d26919932efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  port: COM11
+  port: COM12
   state: 1
-  speed: 0
   distance: 0
+  button: 1
+  speed: 0
 --- !u!114 &1554774689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,6 +1383,7 @@ MonoBehaviour:
   timerText: {fileID: 54574946}
   winText: {fileID: 73404819}
   countDownText: {fileID: 758050853}
+  winningCoeficient: 0
 --- !u!1 &1969928127
 GameObject:
   m_ObjectHideFlags: 0

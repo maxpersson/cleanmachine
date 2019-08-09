@@ -31,8 +31,9 @@ public class Trash : MonoBehaviour
         shootOut();
         if(transform.position.y < -4.5){
             trashDestroyed += 1;
+            GameConstraints go = GameObject.Find("Square").GetComponent<GameConstraints>();
+            go.trashDestroyed = go.trashDestroyed + 1;
             Destroy(gameObject);
-
         }
         //detectIfCollidedWithShark();
     }
